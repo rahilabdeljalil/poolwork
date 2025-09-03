@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تواصل معنا - أحواض السباحة والنوافير الشفافة</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-blue: #0ea5e9;
+        --secondary-blue: #0284c7;
+        --accent-cyan: #06b6d4;
+        --dark-blue: #0f172a;
+        --glass-bg: rgba(255, 255, 255, 0.1);
+        --glass-border: rgba(255, 255, 255, 0.2);
+      }
+
+      body,
+      html {
+        height: 100%;
+        overflow-x: hidden;
+        font-family: "Noto Sans Arabic", "Inter", Arial, sans-serif;
+        scroll-behavior: smooth;
+        background: linear-gradient(
+          135deg,
+          rgba(15, 23, 42, 0.98) 0%,
+          rgba(30, 41, 59, 0.95) 30%,
+          rgba(51, 65, 85, 0.92) 70%,
+          rgba(71, 85, 105, 0.9) 100%
+        );
+        color: #fff;
+        direction: rtl;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1e293b;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(
+          180deg,
+          var(--primary-blue),
+          var(--accent-cyan)
+        );
+        border-radius: 10px;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 32px;
+        background: rgba(15, 23, 42, 1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000;
+        transition: background 0.3s;
+      }
+      nav.scrolled {
+        background: rgba(15, 23, 42, 0.95);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      }
+      nav .logo {
+        font-size: 2rem;
+        font-weight: 700;
+        font-family: "Noto Sans Arabic", "Playfair Display", serif;
+        background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 28px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 6px 14px;
+        border-radius: 20px;
+        transition: background 0.2s, color 0.2s;
+      }
+      nav ul li a.active,
+      nav ul li a:hover {
+        color: var(--accent-cyan);
+        background: var(--glass-bg);
+      }
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 5px;
+      }
+      .menu-toggle span {
+        height: 3px;
+        width: 24px;
+        background: linear-gradient(90deg, #fff, var(--accent-cyan));
+        margin: 3px 0;
+        border-radius: 3px;
+        transition: all 0.3s;
+      }
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 5px);
+      }
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -5px);
+      }
+      @media (max-width: 768px) {
+        nav {
+          padding: 10px 12px;
+        }
+        nav ul {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          flex-direction: column;
+          width: 100%;
+          background: rgba(15, 23, 42, 0.98);
+          text-align: center;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s;
+          padding: 20px 0;
+        }
+        nav ul.show {
+          opacity: 1;
+          visibility: visible;
+        }
+        nav ul li {
+          margin: 8px 0;
+        }
+        .menu-toggle {
+          display: flex;
+        }
+      }
+
+      /* Contact Section */
+      .contact-section {
+        position: relative;
+        min-height: 100vh;
+        padding: 110px 0 40px;
+        background: none;
+        overflow: hidden;
+      }
+      .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+      .contact-header {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .contact-header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 18px;
+      }
+      .contact-header p {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+      .contact-content {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 48px;
+      }
+      .contact-form-container,
+      .contact-info {
+        flex: 1 1 350px;
+        min-width: 320px;
+        max-width: 500px;
+      }
+      .contact-form {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.08),
+          rgba(255, 255, 255, 0.04)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 18px;
+        padding: 32px 24px;
+        box-shadow: 0 4px 24px rgba(6, 182, 212, 0.08);
+      }
+      .form-group {
+        margin-bottom: 18px;
+      }
+      .form-group label {
+        display: block;
+        font-size: 1rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 6px;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px 14px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 10px;
+        color: #fff;
+        font-size: 1rem;
+        font-family: inherit;
+        transition: border-color 0.2s, background 0.2s;
+        backdrop-filter: blur(6px);
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        border-color: var(--accent-cyan);
+        background: rgba(255, 255, 255, 0.12);
+      }
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 90px;
+        max-height: 220px;
+      }
+      .submit-btn {
+        width: 100%;
+        padding: 14px 0;
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue),
+          var(--accent-cyan)
+        );
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 16px rgba(14, 165, 233, 0.15);
+      }
+      .submit-btn:hover {
+        background: linear-gradient(
+          135deg,
+          var(--accent-cyan),
+          var(--primary-blue)
+        );
+        box-shadow: 0 8px 24px rgba(14, 165, 233, 0.18);
+      }
+      .submit-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+
+      /* Contact Info */
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .info-card {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.07),
+          rgba(255, 255, 255, 0.03)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        padding: 20px 18px;
+        box-shadow: 0 2px 12px rgba(6, 182, 212, 0.05);
+        text-align: center;
+      }
+      .info-icon {
+        font-size: 2rem;
+        color: var(--accent-cyan);
+        margin-bottom: 10px;
+        display: block;
+      }
+      .info-card h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 8px;
+        background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .info-card p {
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.5;
+        font-size: 1rem;
+      }
+      .info-card a {
+        color: var(--accent-cyan);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .info-card a:hover {
+        color: var(--primary-blue);
+      }
+      .social-links {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        margin-top: 10px;
+      }
+      .social-link {
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.9);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, color 0.2s;
+      }
+      .social-link:hover {
+        color: #fff;
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue),
+          var(--accent-cyan)
+        );
+        border-color: var(--accent-cyan);
+      }
+
+      /* Map Section */
+      .map-section {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.07),
+          rgba(255, 255, 255, 0.03)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        padding: 28px 18px;
+        margin-bottom: 32px;
+        text-align: center;
+      }
+      .map-section h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 18px;
+        background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .map-container {
+        border-radius: 10px;
+        overflow: hidden;
+        height: 260px;
+        background: rgba(255, 255, 255, 0.09);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .map-placeholder {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1rem;
+      }
+      .map-placeholder i {
+        font-size: 2.5rem;
+        color: var(--accent-cyan);
+        margin-bottom: 12px;
+        display: block;
+      }
+
+      /* Working Hours Section */
+      .hours-section {
+        margin-top: 32px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+      }
+      .hours-card {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.06),
+          rgba(255, 255, 255, 0.02)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        padding: 16px;
+        text-align: center;
+        transition: box-shadow 0.2s, border-color 0.2s;
+      }
+      .hours-card:hover {
+        border-color: rgba(6, 182, 212, 0.18);
+        box-shadow: 0 4px 16px rgba(6, 182, 212, 0.08);
+      }
+      .hours-card h3 {
+        font-size: 1.1rem;
+        color: var(--accent-cyan);
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+      .hours-card p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .contact-content {
+          flex-direction: column;
+          gap: 32px;
+          align-items: stretch;
+        }
+        .contact-form-container,
+        .contact-info {
+          max-width: 100%;
+        }
+        .hours-section {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 768px) {
+        .contact-header h1 {
+          font-size: 2rem;
+        }
+        .contact-header p {
+          font-size: 1rem;
+        }
+        .contact-content {
+          gap: 20px;
+        }
+        .map-section {
+          padding: 18px 8px;
+        }
+        .map-container {
+          height: 180px;
+        }
+        .hours-section {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+      }
+      @media (max-width: 480px) {
+        .contact-section {
+          padding: 80px 0 24px;
+        }
+        .contact-header {
+          margin-bottom: 28px;
+        }
+        .contact-header h1 {
+          font-size: 1.3rem;
+        }
+        .contact-header p {
+          font-size: 0.95rem;
+        }
+        .contact-form {
+          padding: 18px 8px;
+        }
+        .info-card {
+          padding: 12px 6px;
+        }
+        .map-section {
+          padding: 10px 2px;
+        }
+        .map-container {
+          height: 120px;
+        }
+        .hours-section {
+          margin-top: 18px;
+        }
+      }
+
+      /* Accessibility */
+      .submit-btn:focus-visible,
+      .form-group input:focus-visible,
+      .form-group select:focus-visible,
+      .form-group textarea:focus-visible {
+        outline: 2px solid var(--accent-cyan);
+        outline-offset: 2px;
+      }
+      .form-group input:invalid,
+      .form-group select:invalid,
+      .form-group textarea:invalid {
+        border-color: rgba(239, 68, 68, 0.5);
+      }
+      .form-group input:valid,
+      .form-group select:valid,
+      .form-group textarea:valid {
+        border-color: rgba(34, 197, 94, 0.5);
+      }
+
+      /* Footer - Reused from original */
+      .footer {
+        position: relative;
+        background: linear-gradient(
+          135deg,
+          rgba(15, 23, 42, 0.95) 0%,
+          rgba(30, 41, 59, 0.9) 50%,
+          rgba(51, 65, 85, 0.85) 100%
+        );
+        backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 60px 0 40px;
+        color: rgba(255, 255, 255, 0.9);
+        font-family: "Noto Sans Arabic", "Inter", Arial, sans-serif;
+        overflow: hidden;
+        z-index: 2;
+        direction: rtl;
+      }
+
+      .footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="15" height="15" patternUnits="userSpaceOnUse"><path d="M 15 0 L 0 0 0 15" fill="none" stroke="%23ffffff" stroke-width="0.15" opacity="0.15"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        z-index: 1;
+      }
+
+      .footer-container {
+        position: relative;
+        z-index: 2;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-brand {
+        flex: 1;
+        min-width: 250px;
+        text-align: right;
+      }
+
+      .footer-logo {
+        font-size: 2.2rem;
+        font-weight: 700;
+        font-family: "Noto Sans Arabic", "Playfair Display", serif;
+        background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 15px;
+        filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.3));
+      }
+
+      .footer-description {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.6;
+        max-width: 300px;
+        text-align: right;
+      }
+
+      .footer-section {
+        flex: 1;
+        min-width: 200px;
+        text-align: right;
+      }
+
+      .footer-section h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--accent-cyan);
+        margin-bottom: 20px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-cyan),
+          var(--primary-blue)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .footer-section ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-section ul li a {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1rem;
+        display: block;
+        padding: 8px 0;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+
+      .footer-section ul li a:hover {
+        color: var(--accent-cyan);
+        transform: translateX(-5px);
+      }
+
+      .footer-section p {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-direction: row-reverse;
+      }
+
+      .footer-section i {
+        font-size: 1.2rem;
+        color: var(--accent-cyan);
+      }
+
+      .footer-section a {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-section a:hover {
+        color: var(--accent-cyan);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        justify-content: flex-end;
+      }
+
+      .social-link {
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+      }
+
+      .social-link:hover {
+        color: #fff;
+        transform: scale(1.1);
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue),
+          var(--accent-cyan)
+        );
+        border-color: var(--accent-cyan);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-bottom p {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* Floating Elements */
+      .contact-floating-element {
+        position: absolute;
+        background: linear-gradient(
+          135deg,
+          rgba(6, 182, 212, 0.08),
+          rgba(14, 165, 233, 0.04)
+        );
+        border-radius: 50%;
+        animation: contactFloat 25s ease-in-out infinite;
+        z-index: 1;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .contact-floating-element:nth-child(1) {
+        width: clamp(80px, 12vw, 150px);
+        height: clamp(80px, 12vw, 150px);
+        top: 20%;
+        right: 8%;
+        z-index: -5;
+        animation-delay: 0s;
+        animation-duration: 30s;
+      }
+
+      .contact-floating-element:nth-child(2) {
+        width: clamp(100px, 15vw, 200px);
+        height: clamp(100px, 15vw, 200px);
+        top: 60%;
+        left: 5%;
+
+        z-index: -5;
+        animation-delay: 10s;
+        animation-duration: 35s;
+      }
+
+      .contact-floating-element:nth-child(3) {
+        width: clamp(60px, 10vw, 120px);
+        height: clamp(60px, 10vw, 120px);
+        top: 40%;
+        right: 15%;
+        z-index: -5;
+        animation-delay: 20s;
+        animation-duration: 28s;
+      }
+
+      @keyframes contactFloat {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+        25% {
+          transform: translate(40px, -30px) rotate(90deg) scale(0.9);
+        }
+        50% {
+          transform: translate(-30px, -40px) rotate(180deg) scale(1.1);
+        }
+        75% {
+          transform: translate(-50px, 20px) rotate(270deg) scale(0.8);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .contact-content {
+          grid-template-columns: 1fr;
+          gap: clamp(40px, 8vw, 60px);
+        }
+
+        .contact-form-container {
+          order: 2;
+        }
+
+        .contact-info {
+          order: 1;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .footer-brand {
+          margin-bottom: 30px;
+        }
+
+        .footer-section {
+          text-align: center;
+        }
+
+        .footer-section ul {
+          margin: 0 auto;
+          max-width: 200px;
+        }
+
+        .footer-section p {
+          justify-content: center;
+          flex-direction: row-reverse;
+        }
+
+        .social-links {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .contact-info {
+          gap: clamp(20px, 4vw, 30px);
+        }
+
+        .hours-section {
+          grid-template-columns: 1fr;
+          gap: clamp(15px, 3vw, 20px);
+        }
+
+        .map-container {
+          height: clamp(250px, 35vw, 400px);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .contact-header {
+          margin-bottom: 40px;
+        }
+
+        .contact-section {
+          padding: 100px 0 40px;
+        }
+
+        .footer {
+          padding: 40px 0 30px;
+        }
+
+        .footer-container {
+          padding: 0 15px;
+        }
+
+        .footer-logo {
+          font-size: 1.8rem;
+        }
+
+        .footer-description {
+          font-size: 0.95rem;
+        }
+
+        .footer-section h3 {
+          font-size: 1.2rem;
+        }
+
+        .footer-section ul li a {
+          font-size: 0.95rem;
+        }
+
+        .social-link {
+          width: 35px;
+          height: 35px;
+          font-size: 1.3rem;
+        }
+      }
+
+      /* Accessibility & Performance */
+      @media (prefers-reduced-motion: reduce) {
+        .contact-floating-element,
+        .contact-section::after,
+        .contact-form,
+        .contact-info,
+        .map-section,
+        .hours-section {
+          animation: none;
+          transition: none;
+        }
+
+        .contact-form,
+        .contact-info,
+        .map-section,
+        .hours-section {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .contact-form,
+      .contact-info,
+      .info-card,
+      .contact-floating-element {
+        will-change: transform;
+        transform: translateZ(0);
+      }
+
+      /* Loading state for form */
+      .submit-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none !important;
+      }
+
+      .submit-btn:disabled:hover::before {
+        left: -100%;
+      }
+
+      /* Form validation styles */
+      .form-group input:invalid,
+      .form-group select:invalid,
+      .form-group textarea:invalid {
+        border-color: rgba(239, 68, 68, 0.5);
+      }
+
+      .form-group input:valid,
+      .form-group select:valid,
+      .form-group textarea:valid {
+        border-color: rgba(34, 197, 94, 0.5);
+      }
+
+      /* Enhanced focus styles for better accessibility */
+      .submit-btn:focus-visible,
+      .form-group input:focus-visible,
+      .form-group select:focus-visible,
+      .form-group textarea:focus-visible {
+        outline: 3px solid var(--accent-cyan);
+        outline-offset: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav id="navbar" role="navigation">
+      <div class="logo">أحواض ونوافير</div>
+      <ul id="nav-menu">
+        <ul id="nav-menu">
+          <li><a href="./index.html">الرئيسية</a></li>
+          <li><a href="./index.html/#about">من نحن</a></li>
+          <li><a href="./products.html">المنتجات</a></li>
+          <li><a href="./products.html">الخدمات</a></li>
+
+          <li><a href="./contactus.html" class="active">تواصل معنا</a></li>
+        </ul>
+      </ul>
+      <div
+        class="menu-toggle"
+        id="menu-toggle"
+        tabindex="0"
+        role="button"
+        aria-label="تبديل القائمة"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <!-- Floating decorative elements -->
+      <div class="contact-floating-element" aria-hidden="true"></div>
+      <div class="contact-floating-element" aria-hidden="true"></div>
+      <div class="contact-floating-element" aria-hidden="true"></div>
+
+      <div class="contact-container">
+        <!-- Header -->
+        <div class="contact-header">
+          <h1>تواصل معنا</h1>
+          <p>
+            نحن هنا لمساعدتك في تحقيق رؤيتك المثالية للمسابح والنوافير. تواصل
+            معنا اليوم للحصول على استشارة مجانية وعرض سعر مخصص
+          </p>
+        </div>
+
+        <!-- Contact Content -->
+        <div class="contact-content">
+          <!-- Contact Form -->
+          <div class="contact-form-container">
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <label for="name">الاسم الكامل *</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="أدخل اسمك الكامل"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">البريد الإلكتروني *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="example@email.com"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">رقم الهاتف *</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  placeholder="+966 XX XXX XXXX"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="service">نوع الخدمة المطلوبة</label>
+                <select id="service" name="service">
+                  <option value="">اختر نوع الخدمة</option>
+                  <option value="pool-design">تصميم مسبح جديد</option>
+                  <option value="fountain-design">تصميم نافورة</option>
+                  <option value="maintenance">صيانة وتشغيل</option>
+                  <option value="accessories">إكسسوارات ومنتجات الأمان</option>
+                  <option value="consultation">استشارة فقط</option>
+                  <option value="other">أخرى</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="budget">الميزانية المتوقعة (ريال سعودي)</label>
+                <select id="budget" name="budget">
+                  <option value="">حدد الميزانية</option>
+                  <option value="under-50k">أقل من 50,000 ريال</option>
+                  <option value="50k-100k">50,000 - 100,000 ريال</option>
+                  <option value="100k-200k">100,000 - 200,000 ريال</option>
+                  <option value="200k-500k">200,000 - 500,000 ريال</option>
+                  <option value="over-500k">أكثر من 500,000 ريال</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">تفاصيل المشروع *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  placeholder="اكتب تفاصيل مشروعك، المتطلبات الخاصة، أو أي استفسارات أخرى..."
+                ></textarea>
+              </div>
+
+              <button type="submit" class="submit-btn">إرسال الطلب</button>
+            </form>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <div class="info-card">
+              <i class="info-icon fas fa-map-marker-alt"></i>
+              <h3>موقعنا</h3>
+              <p>
+                الرياض، المملكة العربية السعودية<br />
+                حي الملقا، شارع الأمير محمد بن عبدالعزيز
+              </p>
+            </div>
+
+            <div class="info-card">
+              <i class="info-icon fas fa-phone"></i>
+              <h3>اتصل بنا</h3>
+              <p>
+                الهاتف: <a href="tel:+966112345678">+966 11 234 5678</a><br />
+                الجوال: <a href="tel:+966501234567">+966 50 123 4567</a>
+              </p>
+            </div>
+
+            <div class="info-card">
+              <i class="info-icon fas fa-envelope"></i>
+              <h3>راسلنا</h3>
+              <p>
+                البريد الإلكتروني:<br />
+                <a href="mailto:info@poolsfountains.com"
+                  >info@poolsfountains.com</a
+                ><br />
+                <a href="mailto:sales@poolsfountains.com"
+                  >sales@poolsfountains.com</a
+                >
+              </p>
+            </div>
+
+            <div class="info-card">
+              <i class="info-icon fas fa-globe"></i>
+              <h3>المواقع الاجتماعية</h3>
+              <p>
+                تابعنا على منصات التواصل الاجتماعي للاطلاع على أحدث أعمالنا
+                ومشاريعنا
+              </p>
+              <div
+                class="social-links"
+                style="justify-content: center; margin-top: 15px"
+              >
+                <a href="#" aria-label="فيسبوك" class="social-link"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" aria-label="تويتر" class="social-link"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" aria-label="إنستغرام" class="social-link"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="#" aria-label="لينكدإن" class="social-link"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map Section -->
+        <div class="map-section">
+          <h2>موقعنا على الخريطة</h2>
+          <div class="map-container">
+            <div class="map-placeholder">
+              <i class="fas fa-map-marked-alt"></i>
+              <p>خريطة تفاعلية توضح موقعنا في الرياض</p>
+              <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8">
+                يمكن استبدال هذا المكان بخريطة Google Maps الفعلية
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Working Hours -->
+        <div class="hours-section">
+          <div class="hours-card">
+            <h3>ساعات العمل</h3>
+            <p><strong>الأحد - الخميس:</strong><br />8:00 ص - 6:00 م</p>
+          </div>
+
+          <div class="hours-card">
+            <h3>نهاية الأسبوع</h3>
+            <p>
+              <strong>الجمعة:</strong><br />2:00 م - 8:00 م<br /><strong
+                >السبت:</strong
+              >
+              مغلق
+            </p>
+          </div>
+
+          <div class="hours-card">
+            <h3>الطوارئ</h3>
+            <p>
+              <strong>24/7</strong><br />خدمة الطوارئ والصيانة العاجلة متاحة على
+              مدار الساعة
+            </p>
+          </div>
+
+          <div class="hours-card">
+            <h3>وقت الاستجابة</h3>
+            <p>
+              <strong>خلال 24 ساعة</strong><br />سنرد على استفساركم في أسرع وقت
+              ممكن
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" dir="rtl">
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="footer-logo">أحواض ونوافير</div>
+            <p class="footer-description">
+              تصميم وصناعة أحواض السباحة والنوافير الشفافة بأعلى معايير الجودة
+              والأمان.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h3>روابط مفيدة</h3>
+            <ul>
+              <li><a href="#home">الرئيسية</a></li>
+              <li><a href="#about">من نحن</a></li>
+              <li><a href="#products">المنتجات</a></li>
+              <li><a href="#services">الخدمات</a></li>
+              <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>معلومات الاتصال</h3>
+            <p>
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:info@poolsfountains.com"
+                >info@poolsfountains.com</a
+              >
+            </p>
+            <p>
+              <i class="fas fa-phone"></i>
+              <a href="tel:+966112345678">+966 11 234 5678</a>
+            </p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية
+              السعودية
+            </p>
+          </div>
+          <div class="footer-section">
+            <h3>تابعنا</h3>
+            <div class="social-links">
+              <a href="#" aria-label="فيسبوك" class="social-link"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="تويتر" class="social-link"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="إنستغرام" class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="لينكدإن" class="social-link"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 أحواض ونوافير. جميع الحقوق محفوظة.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const navMenu = document.getElementById("nav-menu");
+
+      menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+        menuToggle.classList.toggle("active");
+      });
+
+      menuToggle.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          navMenu.classList.toggle("show");
+          menuToggle.classList.toggle("active");
+        }
+      });
+
+      // Close menu when clicking on a link
+      navMenu.addEventListener("click", (e) => {
+        if (e.target.tagName === "A") {
+          navMenu.classList.remove("show");
+          menuToggle.classList.remove("active");
+        }
+      });
+
+      // Form submission handling
+      const contactForm = document.getElementById("contactForm");
+      const submitBtn = contactForm.querySelector(".submit-btn");
+
+      contactForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // Get form data
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData);
+
+        // Validate required fields
+        const requiredFields = ["name", "email", "phone", "message"];
+        let isValid = true;
+
+        requiredFields.forEach((field) => {
+          const input = document.getElementById(field);
+          if (!input.value.trim()) {
+            input.style.borderColor = "rgba(239, 68, 68, 0.8)";
+            isValid = false;
+          } else {
+            input.style.borderColor = "rgba(34, 197, 94, 0.5)";
+          }
+        });
+
+        if (!isValid) {
+          showNotification("يرجى ملء جميع الحقول المطلوبة", "error");
+          return;
+        }
+
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+          document.getElementById("email").style.borderColor =
+            "rgba(239, 68, 68, 0.8)";
+          showNotification("يرجى إدخال بريد إلكتروني صحيح", "error");
+          return;
+        }
+
+        // Phone validation (basic)
+        const phoneRegex = /^[+]?[\d\s\-()]{10,}$/;
+        if (!phoneRegex.test(data.phone)) {
+          document.getElementById("phone").style.borderColor =
+            "rgba(239, 68, 68, 0.8)";
+          showNotification("يرجى إدخال رقم هاتف صحيح", "error");
+          return;
+        }
+
+        // Disable submit button and show loading
+        submitBtn.disabled = true;
+        submitBtn.innerHTML =
+          '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+
+        try {
+          // Simulate API call (replace with actual endpoint)
+          await new Promise((resolve) => setTimeout(resolve, 2000));
+
+          // Success
+          showNotification(
+            "تم إرسال رسالتك بنجاح! سنتواصل معك قريباً",
+            "success"
+          );
+          contactForm.reset();
+
+          // Reset field styles
+          requiredFields.forEach((field) => {
+            document.getElementById(field).style.borderColor =
+              "rgba(255, 255, 255, 0.2)";
+          });
+        } catch (error) {
+          showNotification(
+            "حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى",
+            "error"
+          );
+        } finally {
+          // Re-enable submit button
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = "إرسال الطلب";
+        }
+      });
+
+      // Notification system
+      function showNotification(message, type = "info") {
+        // Remove existing notification
+        const existingNotification = document.querySelector(".notification");
+        if (existingNotification) {
+          existingNotification.remove();
+        }
+
+        const notification = document.createElement("div");
+        notification.className = `notification ${type}`;
+        notification.innerHTML = `
+        <div style="
+          position: fixed;
+          top: 100px;
+          right: 20px;
+          background: ${
+            type === "success"
+              ? "linear-gradient(135deg, #10b981, #059669)"
+              : "linear-gradient(135deg, #ef4444, #dc2626)"
+          };
+          color: white;
+          padding: 15px 20px;
+          border-radius: 10px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+          z-index: 10000;
+          font-family: inherit;
+          max-width: 350px;
+          animation: slideInRight 0.3s ease-out;
+          backdrop-filter: blur(10px);
+        ">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fas ${
+              type === "success" ? "fa-check-circle" : "fa-exclamation-triangle"
+            }"></i>
+            <span>${message}</span>
+          </div>
+        </div>
+      `;
+
+        document.body.appendChild(notification);
+
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+          if (notification.parentNode) {
+            notification.style.animation = "slideOutRight 0.3s ease-out";
+            setTimeout(() => notification.remove(), 300);
+          }
+        }, 5000);
+      }
+
+      // Add CSS for notification animations
+      const notificationStyles = document.createElement("style");
+      notificationStyles.textContent = `
+      @keyframes slideInRight {
+        0% {
+          opacity: 0;
+          transform: translateX(100px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      
+      @keyframes slideOutRight {
+        0% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        100% {
+          opacity: 0;
+          transform: translateX(100px);
+        }
+      }
+    `;
+      document.head.appendChild(notificationStyles);
+
+      // Input validation on blur
+      document.querySelectorAll("input, select, textarea").forEach((input) => {
+        input.addEventListener("blur", () => {
+          if (input.hasAttribute("required") && !input.value.trim()) {
+            input.style.borderColor = "rgba(239, 68, 68, 0.8)";
+          } else if (input.value.trim()) {
+            if (input.type === "email") {
+              const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              input.style.borderColor = emailRegex.test(input.value)
+                ? "rgba(34, 197, 94, 0.5)"
+                : "rgba(239, 68, 68, 0.8)";
+            } else {
+              input.style.borderColor = "rgba(34, 197, 94, 0.5)";
+            }
+          } else {
+            input.style.borderColor = "rgba(255, 255, 255, 0.2)";
+          }
+        });
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Enhanced accessibility - keyboard navigation for cards
+      document.querySelectorAll(".info-card").forEach((card) => {
+        card.setAttribute("tabindex", "0");
+        card.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            const link = card.querySelector("a");
+            if (link) {
+              link.click();
+            }
+          }
+        });
+      });
+
+      // Auto-resize textarea
+      const messageTextarea = document.getElementById("message");
+      messageTextarea.addEventListener("input", function () {
+        this.style.height = "auto";
+        this.style.height = this.scrollHeight + "px";
+      });
+
+      // Initialize page
+      document.addEventListener("DOMContentLoaded", () => {
+        // Focus first input for better UX
+        setTimeout(() => {
+          document.getElementById("name").focus();
+        }, 1000);
+
+        // Add loading animation to map placeholder
+        const mapPlaceholder = document.querySelector(".map-placeholder");
+        if (mapPlaceholder) {
+          mapPlaceholder.addEventListener("click", () => {
+            mapPlaceholder.innerHTML = `
+            <i class="fas fa-spinner fa-spin" style="font-size: 3rem; color: var(--accent-cyan); margin-bottom: 20px;"></i>
+            <p>جاري تحميل الخريطة...</p>
+          `;
+
+            // Simulate loading (replace with actual map loading)
+            setTimeout(() => {
+              mapPlaceholder.innerHTML = `
+              <i class="fas fa-map-marked-alt"></i>
+              <p>خريطة تفاعلية توضح موقعنا في الرياض</p>
+              <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">
+                يمكن استبدال هذا المكان بخريطة Google Maps الفعلية
+              </p>
+            `;
+            }, 2000);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

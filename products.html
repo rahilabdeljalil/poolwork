@@ -49,6 +49,7 @@
         );
         border-radius: 10px;
       }
+
       nav {
         position: fixed;
         top: 0;
@@ -1631,21 +1632,502 @@
         will-change: transform;
         transform: translateZ(0);
       }
+      /* Product Showcase Section */
+        .product-showcase {
+            position: relative;
+            padding: clamp(40px, 6vw, 60px) 0;
+            overflow: hidden;
+        }
+
+        .product-showcase::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 50%, rgba(51, 65, 85, 0.85) 100%);
+            z-index: 1;
+        }
+
+        .showcase-container {
+            position: relative;
+            z-index: 2;
+            max-width: min(95%, 1400px);
+            margin: 0 auto;
+            padding: 0 clamp(15px, 3vw, 30px);
+        }
+
+        .showcase-header {
+            text-align: center;
+            margin-bottom: clamp(30px, 5vw, 50px);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .showcase-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 50%, var(--primary-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: clamp(12px, 2.5vw, 20px);
+            text-shadow: 0 0 25px rgba(6, 182, 212, 0.3);
+            line-height: 1.2;
+        }
+
+        .showcase-header p {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            color: rgba(255, 255, 255, 0.8);
+            max-width: min(90%, 600px);
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: clamp(20px, 3vw, 30px);
+            margin-top: clamp(30px, 5vw, 40px);
+        }
+
+        .product-card {
+            position: relative;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: clamp(15px, 2.5vw, 20px);
+            padding: clamp(20px, 3.5vw, 25px);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow: hidden;
+            animation: slideInUp 0.8s ease-out forwards;
+            opacity: 0;
+            max-width: 400px;
+            margin: 0 auto;
+            height: auto;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.2s; }
+        .product-card:nth-child(3) { animation-delay: 0.3s; }
+        .product-card:nth-child(4) { animation-delay: 0.4s; }
+        .product-card:nth-child(5) { animation-delay: 0.5s; }
+        .product-card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes slideInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(14, 165, 233, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 50px rgba(6, 182, 212, 0.2), 
+                        0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: clamp(10px, 2vw, 15px);
+            margin-bottom: clamp(15px, 3vw, 20px);
+            transition: all 0.4s ease;
+            filter: brightness(0.9) saturate(1.1);
+            flex-shrink: 0;
+        }
+
+        .product-card:hover .product-image {
+            filter: brightness(1) saturate(1.3);
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-title {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: clamp(8px, 2vw, 12px);
+            text-align: center;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.3;
+        }
+
+        .product-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: clamp(12px, 2.5vw, 15px);
+            flex-grow: 1;
+        }
+
+        .product-price {
+            font-size: clamp(1rem, 2.2vw, 1.2rem);
+            font-weight: 700;
+            color: var(--accent-cyan);
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .view-more-btn {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+            color: white;
+            border: none;
+            padding: clamp(8px, 2vw, 12px) clamp(16px, 3vw, 24px);
+            border-radius: 25px;
+            font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: clamp(10px, 2vw, 15px);
+            opacity: 0;
+            transform: translateY(10px);
+            align-self: center;
+        }
+
+        .product-card:hover .view-more-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .view-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.4);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: clamp(15px, 3vw, 25px);
+            padding: clamp(25px, 4vw, 40px);
+            max-width: min(95%, 800px);
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.8) translateY(50px);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: clamp(15px, 3vw, 20px);
+            left: clamp(15px, 3vw, 20px);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            width: clamp(35px, 6vw, 45px);
+            height: clamp(35px, 6vw, 45px);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(16px, 3vw, 20px);
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+            border-color: var(--accent-cyan);
+        }
+
+        .modal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(25px, 4vw, 40px);
+            align-items: start;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: auto;
+            min-height: 250px;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: clamp(12px, 2.5vw, 20px);
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.2);
+        }
+
+        .modal-info {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(15px, 3vw, 20px);
+        }
+
+        .modal-title {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: right;
+            line-height: 1.3;
+            margin-bottom: clamp(10px, 2vw, 15px);
+        }
+
+        .modal-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .modal-price {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-weight: 700;
+            color: var(--accent-cyan);
+            text-align: right;
+            text-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+        }
+
+        .product-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .product-features li {
+            color: rgba(255, 255, 255, 0.8);
+            padding: clamp(6px, 1.5vw, 8px) 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            position: relative;
+            padding-right: 20px;
+        }
+
+        .product-features li::before {
+            content: "✓";
+            color: var(--accent-cyan);
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+            top: clamp(6px, 1.5vw, 8px);
+        }
+
+        .product-features li:last-child {
+            border-bottom: none;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: clamp(12px, 2.5vw, 15px);
+            margin-top: clamp(20px, 4vw, 30px);
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: clamp(12px, 2.5vw, 15px) clamp(20px, 4vw, 25px);
+            border: none;
+            border-radius: 30px;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+            color: white;
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(14, 165, 233, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--glass-bg);
+            color: white;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .modal-grid {
+                grid-template-columns: 1fr;
+                gap: clamp(20px, 4vw, 25px);
+            }
+
+            .modal-image {
+                max-height: 300px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+                gap: clamp(15px, 3vw, 20px);
+            }
+
+            .product-card {
+                min-height: 280px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .action-btn {
+                min-width: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card {
+                max-width: none;
+                min-height: 260px;
+            }
+
+            .modal-content {
+                margin: 10px;
+                max-height: calc(100vh - 20px);
+            }
+
+            .close-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .product-card,
+            .modal-overlay,
+            .modal-content,
+            .view-more-btn {
+                animation: none;
+                transition: none;
+            }
+        }
+
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--accent-cyan);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
     </style>
   </head>
   <body>
     <!-- Navbar -->
-    <!-- Navbar -->
     <nav id="navbar" role="navigation">
       <div class="logo">أحواض ونوافير</div>
       <ul id="nav-menu">
-        <li><a href="#home" class="active">الرئيسية</a></li>
-        <li><a href="#about">من نحن</a></li>
-        <li><a href="./products.html">الخدمات</a></li>
-        <li><a href="./products.html">المنتجات</a></li>
+        <li>
+          <ul id="nav-menu">
+            <li><a href="./index.html">الرئيسية</a></li>
+            <li><a href="./index.html/#about">من نحن</a></li>
+            <li><a href="./products.html" class="active">المنتجات</a></li>
+            <li><a href="./products.html">الخدمات</a></li>
+            
 
-        <li><a href="./contactus.html">تواصل معنا</a></li>
+            <li><a href="./contactus.html">تواصل معنا</a></li>
+          </ul>
+        </li>
       </ul>
+
       <div
         class="menu-toggle"
         id="menu-toggle"
@@ -1659,180 +2141,170 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home" role="main">
-      <!-- Slideshow -->
-      <div class="slideshow">
-        <img
-          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2073&q=80"
-          class="slide active"
-          alt="Luxury Pool 1"
-          loading="lazy"
-          onerror="this.src='path/to/fallback-image.jpg';"
-        />
-        <img
-          src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-          class="slide"
-          alt="Luxury Pool 2"
-          loading="lazy"
-          onerror="this.src='path/to/fallback-image.jpg';"
-        />
-        <img
-          src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=2076&q=80"
-          class="slide"
-          alt="Luxury Pool 3"
-          loading="lazy"
-          onerror="this.src='path/to/fallback-image.jpg';"
-        />
-        <img
-          src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80"
-          class="slide"
-          alt="Modern Fountain"
-          loading="lazy"
-          onerror="this.src='path/to/fallback-image.jpg';"
-        />
-        <img
-          src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80"
-          class="slide"
-          alt="Elegant Pool Design"
-          loading="lazy"
-          onerror="this.src='path/to/fallback-image.jpg';"
-        />
-      </div>
+    <!-- Products Section -->
+    <section style="margin-top: 50px" class="products-section" id="products">
+      <!-- Floating Elements -->
+      <div class="floating-element" aria-hidden="true"></div>
+      <div class="floating-element" aria-hidden="true"></div>
+      <div class="floating-element" aria-hidden="true"></div>
 
-      <!-- Floating Particles -->
-      <div class="particles" id="particles" aria-hidden="true"></div>
-
-      <!-- Hero Content -->
-      <div class="hero-content">
-        <h1>تصنيع وبيع منتجات المسابح والنوافير</h1>
-        <p class="subtitle">
-          نقدم مجموعة متكاملة من منتجات الأمان، الشلالات والنوافير الشفافة،
-          والإكسسوارات الخاصة بالمسابح، لتمنحك مزيجًا فريدًا من الجودة، الأناقة،
-          والابتكار.
-        </p>
-
-        <div class="cta-buttons">
-          <a href="#products" class="cta-btn primary">استكشف التصاميم</a>
-          <a href="#contact" class="cta-btn secondary">احصل على عرض سعر</a>
-        </div>
-      </div>
-
-      <!-- Navigation Controls -->
-      <div class="slide-controls">
-        <button class="slide-btn" id="prev-btn" aria-label="الصورة السابقة">
-          &#8250;
-        </button>
-        <button class="slide-btn" id="next-btn" aria-label="الصورة التالية">
-          &#8249;
-        </button>
-      </div>
-
-      <!-- Slide Indicators -->
-      <div class="slide-indicators" id="indicators">
-        <div class="indicator active" data-slide="0"></div>
-        <div class="indicator" data-slide="1"></div>
-        <div class="indicator" data-slide="2"></div>
-        <div class="indicator" data-slide="3"></div>
-        <div class="indicator" data-slide="4"></div>
-      </div>
-
-      <!-- Scroll Indicator -->
-      <div
-        class="scroll-indicator"
-        role="button"
-        tabindex="0"
-        aria-label="التمرير للأسفل"
-        onclick="scrollToNext()"
-      >
-        <div class="scroll-arrow">&#8595;</div>
-      </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section class="about-section" id="about">
-      <!-- Floating decorative elements -->
-      <div class="about-floating-element" aria-hidden="true"></div>
-      <div class="about-floating-element" aria-hidden="true"></div>
-      <div class="about-floating-element" aria-hidden="true"></div>
-
-      <div class="about-container">
-        <div class="about-hero reveal">
-          <h2>من نحن</h2>
+      <div class="products-container">
+        <div class="products-header">
+          <h2>منتجاتنا المميزة</h2>
           <p>
-            شركة رائدة في تصميم وتصنيع أحواض السباحة والنوافير الشفافة، نجمع بين
-            الابتكار والجودة لنقدم لك تجربة استثنائية تعكس رؤيتنا في إعادة تعريف
-            مفهوم الفخامة والأناقة
+            حلول شاملة ومبتكرة لأحواض السباحة والنوافير الشفافة بأعلى معايير
+            الجودة والأمان
           </p>
         </div>
 
-        <div class="about-content">
-          <div class="about-card reveal">
-            <span class="about-card-icon">🎯</span>
-            <h3>رؤيتنا</h3>
+        <div class="products-grid">
+          <div class="product-card reveal">
+            <span class="product-icon">🛡️</span>
+            <h3>منتجات أمان المسبح</h3>
             <p>
-              أن نكون الشركة الرائدة عالمياً في مجال تصميم وتصنيع أحواض السباحة
-              والنوافير الشفافة، من خلال الابتكار المستمر والتميز في الجودة.
-              نسعى إلى تحويل كل مساحة إلى تحفة فنية تجمع بين الجمال والوظائف
-              العملية.
+              حلول مبتكرة تضمن لك ولعائلتك تجربة سباحة آمنة، تشمل أدوات التثبيت،
+              الحواجز، والدعامات المصممة بأعلى معايير الجودة.
             </p>
           </div>
 
-          <div class="about-card reveal">
-            <span class="about-card-icon">🌟</span>
-            <h3>رسالتنا</h3>
+          <div class="product-card reveal">
+            <span class="product-icon">🌊</span>
+            <h3>شلالات شفافة</h3>
             <p>
-              نلتزم بتقديم حلول مبتكرة وعالية الجودة لأحواض السباحة والنوافير
-              الشفافة، مع التركيز على الأمان والاستدامة. نهدف إلى تجاوز توقعات
-              عملائنا من خلال فريق متخصص وتقنيات متطورة.
+              شلالات عصرية تضيف لمسة جمالية ولمعانًا مائيًا مميزًا إلى مسابحك
+              وحدائقك، مصنوعة من مواد عالية الشفافية والمتانة.
             </p>
           </div>
 
-          <div class="about-card reveal">
-            <span class="about-card-icon">💎</span>
-            <h3>قيمنا</h3>
+          <div class="product-card reveal">
+            <span class="product-icon">💧</span>
+            <h3>نوافير شفافة</h3>
             <p>
-              نؤمن بالجودة، الابتكار، والشفافية في جميع تعاملاتنا. نضع الأمان في
-              المقدمة، ونحرص على الاستدامة البيئية، ونسعى لبناء علاقات طويلة
-              الأمد مع عملائنا القائمة على الثقة والتميز.
+              نوافير بأشكال متعددة وتصاميم حديثة لتزيين المساحات الداخلية
+              والخارجية، مع إمكانية دمج الإضاءة لإضفاء جو ساحر.
             </p>
           </div>
 
-          <div class="about-card reveal">
-            <span class="about-card-icon">🏆</span>
-            <h3>خبرتنا</h3>
+          <div class="product-card reveal">
+            <span class="product-icon">⚙️</span>
+            <h3>إكسسوارات المسابح والنوافير</h3>
             <p>
-              بخبرة تمتد لأكثر من 15 عاماً في هذا المجال، نفخر بفريقنا من
-              المهندسين والحرفيين المتخصصين الذين يجمعون بين المعرفة التقنية
-              العميقة والإبداع الفني لتحقيق أعلى معايير الجودة والتميز.
+              كل ما تحتاجه من
+              <strong>إكسسوارات عملية وعالية الجودة</strong> لتجهيز مسابحك
+              ونوافيرك، بما في ذلك أنظمة التثبيت، الوصلات، والديكورات المكملة.
             </p>
           </div>
-        </div>
 
-        <div class="stats-section">
-          <div class="stat-item reveal">
-            <span class="stat-number">500+</span>
-            <span class="stat-label">مشروع مكتمل</span>
-          </div>
-
-          <div class="stat-item reveal">
-            <span class="stat-number">15+</span>
-            <span class="stat-label">سنوات من الخبرة</span>
-          </div>
-
-          <div class="stat-item reveal">
-            <span class="stat-number">50+</span>
-            <span class="stat-label">عميل راضٍ</span>
-          </div>
-
-          <div class="stat-item reveal">
-            <span class="stat-number">99%</span>
-            <span class="stat-label">معدل الرضا</span>
+          <div class="product-card reveal">
+            <span class="product-icon">🔩</span>
+            <h3>قطع الغيار</h3>
+            <p>
+              نوفر جميع قطع الغيار الأساسية لإطالة عمر منتجاتك وضمان عملها
+              بكفاءة، مع سهولة التركيب والاستبدال.
+            </p>
           </div>
         </div>
       </div>
     </section>
+ <!-- Product Showcase Section -->
+    <section class="product-showcase">
+        <div class="showcase-container">
+            <div class="showcase-header">
+                <h2>أحدث المنتجات</h2>
+                <p>اكتشف مجموعتنا المتنوعة من أحواض السباحة والنوافير الشفافة عالية الجودة</p>
+            </div>
 
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card" data-product="1">
+                    <img src="https://images.unsplash.com/photo-1571624436279-b272aff752b5?w=400&h=300&fit=crop" alt="ناقورة مثلثة" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">ناقورة مثلثة (دفق نقطي عمودي)</h3>
+                        <p class="product-description">ناقورة مثلثة الشكل مصممة للدفق النقطي العمودي بتقنية عالية الدقة</p>
+                        <div class="product-price">يبدأ من ₪ 27</div>
+                    </div>
+                    <button class="view-more-btn" onclick="openModal(1)">عرض التفاصيل</button>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-product="2">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop" alt="ناقورة مستطيلة" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">ناقورة مستطيلة (دفق نقطي عمودي)</h3>
+                        <p class="product-description">ناقورة مستطيلة مصممة خصيصاً للحصول على تدفق مائي منتظم</p>
+                        <div class="product-price">يبدأ من ₪ 27</div>
+                    </div>
+                    <button class="view-more-btn" onclick="openModal(2)">عرض التفاصيل</button>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" data-product="3">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop" alt="ناقورة مربعة" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">ناقورة مربعة (دفق نقطي عمودي)</h3>
+                        <p class="product-description">تصميم مربع أنيق يوفر توزيع مثالي للمياه في كافة الاتجاهات</p>
+                        <div class="product-price">يبدأ من ₪ 26</div>
+                    </div>
+                    <button class="view-more-btn" onclick="openModal(3)">عرض التفاصيل</button>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card" data-product="4">
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop" alt="ناقورة طويلة" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">ناقورة طويلة</h3>
+                        <p class="product-description">ناقورة بتصميم طولي مميز تناسب المساحات الواسعة والأحواض الكبيرة</p>
+                        <div class="product-price">يبدأ من ₪ 54</div>
+                    </div>
+                    <button class="view-more-btn" onclick="openModal(4)">عرض التفاصيل</button>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card" data-product="5">
+                    <img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?w=400&h=300&fit=crop" alt="ناقورة نجمة" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">ناقورة نجمة (دفق نقطي عمودي)</h3>
+                        <p class="product-description">تصميم نجمي فريد يضفي لمسة جمالية رائعة على النوافير</p>
+                        <div class="product-price">يبدأ من ₪ 27</div>
+                    </div>
+                    <button class="view-more-btn" onclick="openModal(5)">عرض التفاصيل</button>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card" data-product="6">
+                    <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=400&h=300&fit=crop" alt="ناقورة دائرية" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">ناقورة دائرية (دفق نقطي عمودي)</h3>
+                        <p class="product-description">تصميم دائري كلاسيكي يوفر تدفق مائي متوازن ومنتظم</p>
+                        <div class="product-price">يبدأ من ₪ 27</div>
+                    </div>
+                    <button class="view-more-btn" onclick="openModal(6)">عرض التفاصيل</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <div class="modal-grid">
+                <div>
+                    <img id="modalImage" src="" alt="" class="modal-image">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle" class="modal-title"></h2>
+                    <p id="modalDescription" class="modal-description"></p>
+                    <ul id="modalFeatures" class="product-features"></ul>
+                    <div id="modalPrice" class="modal-price"></div>
+                    <div class="action-buttons">
+                        <button class="action-btn btn-primary" onclick="addToCart()">أضف للسلة</button>
+                        <button class="action-btn btn-secondary" onclick="contactUs()">تواصل معنا</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Footer -->
     <footer class="footer" dir="rtl">
       <div class="footer-container">
@@ -1893,7 +2365,250 @@
         </div>
       </div>
     </footer>
+<script>
+        // Product data
+        const products = {
+            1: {
+                title: "ناقورة مثلثة (دفق نقطي عمودي)",
+                image: "https://images.unsplash.com/photo-1571624436279-b272aff752b5?w=800&h=600&fit=crop",
+                price: "يبدأ من ₪ 27",
+                description: "ناقورة مثلثة الشكل مصممة بدقة عالية لتوفير دفق نقطي عمودي مثالي. تتميز بالمتانة والأداء الفائق مع ضمان الجودة الأوروبية. مناسبة للاستخدام في النوافير الصغيرة والمتوسطة.",
+                features: [
+                    "تصميم مثلثي مبتكر",
+                    "دفق نقطي عمودي منتظم",
+                    "مصنوعة من مواد عالية الجودة",
+                    "مقاومة للتآكل والصدأ",
+                    "سهولة التركيب والصيانة",
+                    "ضمان لمدة سنتين"
+                ]
+            },
+            2: {
+                title: "ناقورة مستطيلة (دفق نقطي عمودي)",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
+                price: "يبدأ من ₪ 27",
+                description: "ناقورة مستطيلة الشكل تضمن توزيع متوازن للمياه مع دفق نقطي عمودي مثالي. تناسب التصاميم الهندسية الحديثة وتوفر أداءً استثنائياً في كافة الظروف الجوية.",
+                features: [
+                    "تصميم مستطيل عملي",
+                    "توزيع متوازن للمياه",
+                    "أداء عالي في جميع الأحوال الجوية",
+                    "مواد متطورة مقاومة للعوامل الخارجية",
+                    "تصميم يناسب النوافير العصرية",
+                    "صيانة قليلة ومتانة عالية"
+                ]
+            },
+            3: {
+                title: "ناقورة مربعة (دفق نقطي عمودي)",
+                image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&h=600&fit=crop",
+                price: "يبدأ من ₪ 26",
+                description: "تصميم مربع أنيق يوفر توزيع مثالي للمياه في كافة الاتجاهات. هذه الناقورة تجمع بين الجمال والوظيفة، مما يجعلها الخيار الأمثل للنوافير الديكورية.",
+                features: [
+                    "شكل مربع متناسق",
+                    "توزيع 360 درجة للمياه",
+                    "مثالية للنوافير الديكورية",
+                    "تقنية دفق متقدمة",
+                    "تصميم يناسب المساحات المفتوحة",
+                    "كفاءة عالية في استهلاك المياه"
+                ]
+            },
+            4: {
+                title: "ناقورة طويلة",
+                image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop",
+                price: "يبدأ من ₪ 54",
+                description: "ناقورة بتصميم طولي مميز تناسب المساحات الواسعة والأحواض الكبيرة. تتميز بقدرتها على إنتاج تدفق مائي قوي ومنتظم، مما يجعلها مثالية للمشاريع الكبرى والنوافير التجارية.",
+                features: [
+                    "تصميم طولي مميز",
+                    "مناسبة للمساحات الواسعة",
+                    "تدفق قوي ومنتظم",
+                    "جودة تجارية عالية",
+                    "تحمل ضغوط مائية عالية",
+                    "مثالية للمشاريع الكبرى"
+                ]
+            },
+            5: {
+                title: "ناقورة نجمة (دفق نقطي عمودي)",
+                image: "https://images.unsplash.com/photo-1572331165267-854da2b10ccc?w=800&h=600&fit=crop",
+                price: "يبدأ من ₪ 27",
+                description: "تصميم نجمي فريد يضفي لمسة جمالية رائعة على النوافير. هذه الناقورة تجمع بين الأناقة والأداء، حيث تخلق أنماط مائية مذهلة تجذب الأنظار وتضيف بُعداً جمالياً استثنائياً.",
+                features: [
+                    "تصميم نجمي مبتكر",
+                    "أنماط مائية جذابة",
+                    "إضافة جمالية استثنائية",
+                    "تأثيرات بصرية مميزة",
+                    "مناسبة للحدائق الراقية",
+                    "سهولة التحكم والتشغيل"
+                ]
+            },
+            6: {
+                title: "ناقورة دائرية (دفق نقطي عمودي)",
+                image: "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=800&h=600&fit=crop",
+                price: "يبدأ من ₪ 27",
+                description: "تصميم دائري كلاسيكي يوفر تدفق مائي متوازن ومنتظم. هذه الناقورة تمثل الاختيار الأمثل للذين يفضلون التصاميم التقليدية مع الأداء العصري المتطور.",
+                features: [
+                    "تصميم دائري كلاسيكي",
+                    "تدفق متوازن ومنتظم",
+                    "أداء عصري متطور",
+                    "مناسبة لجميع أنواع النوافير",
+                    "سهولة الدمج مع التصاميم الموجودة",
+                    "استهلاك مثالي للطاقة"
+                ]
+            }
+        };
 
+        // Modal functions
+        function openModal(productId) {
+            const product = products[productId];
+            if (!product) return;
+
+            const modal = document.getElementById('productModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const modalFeatures = document.getElementById('modalFeatures');
+            const modalPrice = document.getElementById('modalPrice');
+
+            // Set content
+            modalImage.src = product.image;
+            modalImage.alt = product.title;
+            modalTitle.textContent = product.title;
+            modalDescription.textContent = product.description;
+            modalPrice.textContent = product.price;
+
+            // Clear and populate features
+            modalFeatures.innerHTML = '';
+            product.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature;
+                modalFeatures.appendChild(li);
+            });
+
+            // Show modal with animation
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('productModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function addToCart() {
+            // Add to cart functionality
+            alert('تم إضافة المنتج إلى السلة بنجاح!');
+            // Here you would typically integrate with your cart system
+        }
+
+        function contactUs() {
+            // Contact functionality
+            window.open('mailto:info@poolsfountains.com?subject=استفسار عن المنتج', '_blank');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('productModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Optimize product card animations
+        function observeProductCards() {
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.animationPlayState = 'running';
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                document.querySelectorAll('.product-card').forEach(card => {
+                    card.style.animationPlayState = 'paused';
+                    observer.observe(card);
+                });
+            }
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            observeProductCards();
+            
+            // Add loading animation to images
+            const images = document.querySelectorAll('.product-image');
+            images.forEach(img => {
+                img.addEventListener('load', function() {
+                    this.style.opacity = '1';
+                });
+                
+                img.addEventListener('error', function() {
+                    console.warn('Image failed to load:', this.src);
+                    this.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                });
+            });
+
+            // Enhanced hover effects for touch devices
+            if ('ontouchstart' in window) {
+                document.querySelectorAll('.product-card').forEach(card => {
+                    card.addEventListener('touchstart', function() {
+                        this.style.transform = 'translateY(-5px) scale(1.01)';
+                    });
+                    
+                    card.addEventListener('touchend', function() {
+                        setTimeout(() => {
+                            this.style.transform = 'translateY(0) scale(1)';
+                        }, 150);
+                    });
+                });
+            }
+        });
+
+        // Lazy loading for modal images
+        function lazyLoadModalImage(src) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => resolve(img);
+                img.onerror = reject;
+                img.src = src;
+            });
+        }
+
+        // Performance optimization
+        var resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(function() {
+                // Recalculate layouts if needed
+                const modal = document.getElementById('productModal');
+                if (modal.classList.contains('active')) {
+                    // Adjust modal position for new screen size
+                    const modalContent = modal.querySelector('.modal-content');
+                    modalContent.style.maxHeight = '90vh';
+                }
+            }, 250);
+        });
+
+        // Add smooth scrolling to showcase when called from navigation
+        function scrollToProducts() {
+            document.querySelector('.product-showcase').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // Export functions for external use
+        window.openModal = openModal;
+        window.closeModal = closeModal;
+        window.addToCart = addToCart;
+        window.contactUs = contactUs;
+        window.scrollToProducts = scrollToProducts;
+    </script>
     <script>
       // Navbar scroll effect
       window.addEventListener("scroll", () => {
