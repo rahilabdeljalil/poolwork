@@ -8,6 +8,10 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <style>
       * {
         margin: 0;
@@ -2113,10 +2117,10 @@
   <body>
     <!-- Navbar -->
    <nav id="navbar" role="navigation">
-      <div class="logo">أحواض ونوافير</div>
+      <div class="logo"><a href=""><img src="imgs/logo.png" width="60px" alt=""></a></div>
       <ul id="nav-menu">
-        <li><a href="#home" class="active">الرئيسية</a></li>
-        <li><a href="#about">من نحن</a></li>
+        <li><a href="index.html" class="active">الرئيسية</a></li>
+        <li><a href="index.html#about">من نحن</a></li>
         <li><a href="./products.html">الخدمات</a></li>
         <li><a href="./products.html">المنتجات</a></li>
 
@@ -2201,7 +2205,7 @@
       </div>
     </section>
  <!-- Product Showcase Section -->
-    <section class="product-showcase">
+    <section class="product-showcase" id="">
         <div class="showcase-container">
             <div class="showcase-header">
                 <h2>أحدث المنتجات</h2>
@@ -2211,10 +2215,10 @@
             <div class="products-grid">
                 <!-- Product 1 -->
                 <div class="product-card" data-product="1">
-                    <img src="https://images.unsplash.com/photo-1571624436279-b272aff752b5?w=400&h=300&fit=crop" alt="ناقورة مثلثة" class="product-image">
+                    <img src="https://cdn.salla.sa/KrDbg/6aa9c7ea-9d0d-46dd-8fe5-c1160582a474-1000x707.05630791162-Zwl5OIxK2iTzytH37j3lO9NKCGFoatIxiOTR2i8c.jpg" alt="نافورة مثلثة" class="product-image">
                     <div class="product-info">
-                        <h3 class="product-title">ناقورة مثلثة (دفق نقطي عمودي)</h3>
-                        <p class="product-description">ناقورة مثلثة الشكل مصممة للدفق النقطي العمودي بتقنية عالية الدقة</p>
+                        <h3 class="product-title">نافورة مثلثة (دفق نقطي عمودي)</h3>
+                        <p class="product-description">نافورة مثلثة الشكل مصممة للدفق النقطي العمودي بتقنية عالية الدقة</p>
                         <div class="product-price">يبدأ من ₪ 27</div>
                     </div>
                     <button class="view-more-btn" onclick="openModal(1)">عرض التفاصيل</button>
@@ -2222,10 +2226,10 @@
 
                 <!-- Product 2 -->
                 <div class="product-card" data-product="2">
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop" alt="ناقورة مستطيلة" class="product-image">
+                    <img src="https://cdn.salla.sa/KrDbg/39e6460e-38b1-48e6-8ee3-53077a795116-1000x707.05630791162-OCOveRLe1aYV7r83CRtP1ZltImh40XKJ1BuZCvlo.jpg" alt="نافورة مستطيلة" class="product-image">
                     <div class="product-info">
-                        <h3 class="product-title">ناقورة مستطيلة (دفق نقطي عمودي)</h3>
-                        <p class="product-description">ناقورة مستطيلة مصممة خصيصاً للحصول على تدفق مائي منتظم</p>
+                        <h3 class="product-title">نافورة مستطيلة (دفق نقطي عمودي)</h3>
+                        <p class="product-description">نافورة مستطيلة مصممة خصيصاً للحصول على تدفق مائي منتظم</p>
                         <div class="product-price">يبدأ من ₪ 27</div>
                     </div>
                     <button class="view-more-btn" onclick="openModal(2)">عرض التفاصيل</button>
@@ -2233,9 +2237,9 @@
 
                 <!-- Product 3 -->
                 <div class="product-card" data-product="3">
-                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop" alt="ناقورة مربعة" class="product-image">
+                    <img src="https://cdn.salla.sa/KrDbg/e76cd1fa-1938-4fa2-9daa-20455f31c8f1-1000x707.05630791162-hL1Y6cJf5QkR4rSGTu63HhiekE3vuOXrFKNxpO71.jpg" alt="نافورة مربعة" class="product-image">
                     <div class="product-info">
-                        <h3 class="product-title">ناقورة مربعة (دفق نقطي عمودي)</h3>
+                        <h3 class="product-title">نافورة مربعة (دفق نقطي عمودي)</h3>
                         <p class="product-description">تصميم مربع أنيق يوفر توزيع مثالي للمياه في كافة الاتجاهات</p>
                         <div class="product-price">يبدأ من ₪ 26</div>
                     </div>
@@ -2244,10 +2248,10 @@
 
                 <!-- Product 4 -->
                 <div class="product-card" data-product="4">
-                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop" alt="ناقورة طويلة" class="product-image">
+                    <img src="https://cdn.salla.sa/KrDbg/fc1759be-1d3c-4c43-abae-720217d82481-1000x706.875-cAu11CrilO325bJsCh5GE1kdurdN9R0sFhv08uif.jpg" alt="نافورة طويلة" class="product-image">
                     <div class="product-info">
-                        <h3 class="product-title">ناقورة طويلة</h3>
-                        <p class="product-description">ناقورة بتصميم طولي مميز تناسب المساحات الواسعة والأحواض الكبيرة</p>
+                        <h3 class="product-title">نافورة طويلة</h3>
+                        <p class="product-description">نافورة بتصميم طولي مميز تناسب المساحات الواسعة والأحواض الكبيرة</p>
                         <div class="product-price">يبدأ من ₪ 54</div>
                     </div>
                     <button class="view-more-btn" onclick="openModal(4)">عرض التفاصيل</button>
@@ -2255,9 +2259,9 @@
 
                 <!-- Product 5 -->
                 <div class="product-card" data-product="5">
-                    <img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?w=400&h=300&fit=crop" alt="ناقورة نجمة" class="product-image">
+                    <img src="https://cdn.salla.sa/KrDbg/7a8aaf95-b093-4502-82d6-091aee2c9d2b-1000x707.05630791162-MMgLUnRUkJatMSJ2Xn9H1S9IR5oGnRIH776H2m6D.jpg" alt="نافورة نجمة" class="product-image">
                     <div class="product-info">
-                        <h3 class="product-title">ناقورة نجمة (دفق نقطي عمودي)</h3>
+                        <h3 class="product-title">نافورة نجمة (دفق نقطي عمودي)</h3>
                         <p class="product-description">تصميم نجمي فريد يضفي لمسة جمالية رائعة على النوافير</p>
                         <div class="product-price">يبدأ من ₪ 27</div>
                     </div>
@@ -2266,14 +2270,70 @@
 
                 <!-- Product 6 -->
                 <div class="product-card" data-product="6">
-                    <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=400&h=300&fit=crop" alt="ناقورة دائرية" class="product-image">
+                    <img src="https://cdn.salla.sa/KrDbg/b90a4a46-2a62-4fe8-b3d0-12cfe73268ad-1000x707.05630791162-2DsGKCvzoZCJvyDuWmSh8xpEyugpWXRFcAylOLpR.jpg" alt="نافورة دائرية" class="product-image">
                     <div class="product-info">
-                        <h3 class="product-title">ناقورة دائرية (دفق نقطي عمودي)</h3>
+                        <h3 class="product-title">نافورة دائرية (دفق نقطي عمودي)</h3>
                         <p class="product-description">تصميم دائري كلاسيكي يوفر تدفق مائي متوازن ومنتظم</p>
                         <div class="product-price">يبدأ من ₪ 27</div>
                     </div>
                     <button class="view-more-btn" onclick="openModal(6)">عرض التفاصيل</button>
                 </div>
+
+                <!-- Product 7 -->
+                <div class="product-card" data-product="7">
+                    <img src="https://cdn.salla.sa/KrDbg/b0c6b867-39e3-45df-8d5a-07d774cfecaf-1000x706.875-pnR3FFCYd1p1MzsQwmj086H5eN2SHrZz9pvzFP2i.jpg" alt="نافورة دائرية" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">شلال نجمة (دفع سفلي) 14</h3>
+                        <p class="product-description">شلال شفاف نجمة دفع سفلي نقطي يضفي لمسة رائعة للنافورة أو المسبح الخاص بك. *مصنوع من مادة الأكريليك فايبر الشفاف.</p>
+                        <div class="product-price">يبدأ من ₪ 27</div>
+                    </div>
+                    <button class="view-more-btn" onclick="openModal(7)">عرض التفاصيل</button>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card" data-product="8">
+                    <img src="https://cdn.salla.sa/KrDbg/3e986da8-89fc-4ec2-abad-8a3c962fdfe8-1000x706.875-UIVygOFNHLywRlcsQfC99Wa69pDE6hMmGQSxKRaF.jpg" alt="نافورة دائرية" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">شلال وردة (دفع سفلي) 13</h3>
+                        <p class="product-description">شلال شفاف وردة دفع سفلي نقطي يضفي لمسة رائعة للنافورة أو المسبح الخاص بك. *مصنوع من مادة الأكريليك فايبر الشفاف.</p>
+                        <div class="product-price">يبدأ من ₪ 27</div>
+                    </div>
+                    <button class="view-more-btn" onclick="openModal(8)">عرض التفاصيل</button>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card" data-product="8">
+                    <img src="https://cdn.salla.sa/KrDbg/778c2378-2f49-411a-a0d4-e2fbccaaffaf-1000x706.875-rtKVF1BL6ErbcmeNLkNI0S0HbMXeSRZUzvWHx5Vm.jpg" alt="نافورة دائرية" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">شلال سداسي (دفع سفلي) 12</h3>
+                        <p class="product-description">شلال شفاف سداسي دفع سفلي نقطي يضفي لمسة رائعة للنافورة أو المسبح الخاص بك. *مصنوع من مادة الأكريليك فايبر الشفاف.</p>
+                        <div class="product-price">يبدأ من ₪ 27</div>
+                    </div>
+                    <button class="view-more-btn" onclick="openModal(9)">عرض التفاصيل</button>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product-card" data-product="8">
+                    <img src="https://cdn.salla.sa/KrDbg/242449e8-bddc-4595-9fd5-06a7d4edd076-1000x706.875-BggOw7nEz5VLjUgDoWXydpwfUcjf7ukYEft2FmXE.jpg" alt="نافورة دائرية" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">شلال دائري (دفع سفلي) 11</h3>
+                        <p class="product-description">شلال شفاف دائري دفع سفلي نقطي يضفي لمسة رائعة للنافورة أو المسبح الخاص بك. *مصنوع من مادة الأكريليك فايبر الشفاف.</p>
+                        <div class="product-price">يبدأ من ₪ 27</div>
+                    </div>
+                    <button class="view-more-btn" onclick="openModal(10)">عرض التفاصيل</button>
+                </div>
+
+                <!-- Product 11 -->
+                <div class="product-card" data-product="8">
+                    <img src="https://cdn.salla.sa/KrDbg/8518974c-f2a2-4332-80d9-177e303ab4d8-1000x706.875-2hlU0teAuTRN7tBFrF74TVJ8BqEDOjYFg2cm6E7C.jpg" alt="نافورة دائرية" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">شلال مثلث (دفع سفلي) 15</h3>
+                        <p class="product-description">شلال شفاف مثلث دفع سفلي نقطي يضفي لمسة رائعة للنافورة أو المسبح الخاص بك. *مصنوع من مادة الأكريليك فايبر الشفاف.</p>
+                        <div class="product-price">يبدأ من ₪ 27</div>
+                    </div>
+                    <button class="view-more-btn" onclick="openModal(11)">عرض التفاصيل</button>
+                </div>
+
             </div>
         </div>
     </section>
@@ -2304,7 +2364,7 @@
       <div class="footer-container">
         <div class="footer-content">
           <div class="footer-brand">
-            <div class="footer-logo">أحواض ونوافير</div>
+            <div class="footer-logo"><img src="imgs/logo.png" width="100px" alt=""></div>
             <p class="footer-description">
               تصميم وصناعة أحواض السباحة والنوافير الشفافة بأعلى معايير الجودة.
             </p>
@@ -2313,10 +2373,10 @@
             <h3>روابط مفيدة</h3>
             <ul>
               <li><a href="#home">الرئيسية</a></li>
-              <li><a href="#about">من نحن</a></li>
-              <li><a href="#products">المنتجات</a></li>
-              <li><a href="#services">الخدمات</a></li>
-              <li><a href="#contact">اتصل بنا</a></li>
+              <li><a href="index.html#about">من نحن</a></li>
+              <li><a href="products.html#products">المنتجات</a></li>
+              <li><a href="products.html">الخدمات</a></li>
+              <li><a href="contactus.html">اتصل بنا</a></li>
             </ul>
           </div>
           <div class="footer-section">
