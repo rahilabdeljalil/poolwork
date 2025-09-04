@@ -195,14 +195,6 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(
-          135deg,
-          rgba(15, 23, 42, 0.3) 0%,
-          rgba(6, 182, 212, 0.2) 50%,
-          rgba(14, 165, 233, 0.3) 100%
-        );
-        z-index: 2;
-        animation: gradientShift 8s ease-in-out infinite alternate;
       }
 
       @keyframes gradientShift {
@@ -503,10 +495,10 @@
         padding: clamp(60px, 8vw, 100px) 0;
         background: linear-gradient(
           135deg,
-          rgba(15, 23, 42, 0.98) 0%,
-          rgba(30, 41, 59, 0.95) 30%,
-          rgba(51, 65, 85, 0.92) 70%,
-          rgba(71, 85, 105, 0.9) 100%
+          rgba(15, 23, 42, 1) 0%,
+          rgba(30, 41, 59, 1) 30%,
+          rgba(51, 65, 85, 1) 70%,
+          rgba(71, 85, 105, 1) 100%
         );
         overflow: hidden;
         direction: rtl;
@@ -521,7 +513,7 @@
         height: 100%;
         background: radial-gradient(
             circle at 20% 30%,
-            rgba(6, 182, 212, 0.08) 0%,
+            rgba(6, 182, 212, ) 0%,
             transparent 50%
           ),
           radial-gradient(
@@ -1223,9 +1215,9 @@
         position: relative;
         background: linear-gradient(
           135deg,
-          rgba(15, 23, 42, 0.95) 0%,
-          rgba(30, 41, 59, 0.9) 50%,
-          rgba(51, 65, 85, 0.85) 100%
+          rgba(15, 23, 42, 1) 0%,
+          rgba(30, 41, 59, 1) 50%,
+          rgba(30, 41, 59, 1) 100%
         );
         backdrop-filter: blur(20px);
         border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -1670,35 +1662,35 @@
       <!-- Slideshow -->
       <div class="slideshow">
         <img
-          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2073&q=80"
+          src="./imgs/homepage2.jpg"
           class="slide active"
           alt="Luxury Pool 1"
           loading="lazy"
           onerror="this.src='path/to/fallback-image.jpg';"
         />
         <img
-          src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+          src="./imgs/nafoura1.jpg"
           class="slide"
           alt="Luxury Pool 2"
           loading="lazy"
           onerror="this.src='path/to/fallback-image.jpg';"
         />
         <img
-          src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=2076&q=80"
+          src="./imgs/pecin1.jpg"
           class="slide"
           alt="Luxury Pool 3"
           loading="lazy"
           onerror="this.src='path/to/fallback-image.jpg';"
         />
         <img
-          src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80"
+          src="./imgs/nafoura2.jpg"
           class="slide"
           alt="Modern Fountain"
           loading="lazy"
           onerror="this.src='path/to/fallback-image.jpg';"
         />
         <img
-          src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80"
+          src="./imgs/31113.jpg"
           class="slide"
           alt="Elegant Pool Design"
           loading="lazy"
@@ -1880,20 +1872,27 @@
           </div>
           <div class="footer-section">
             <h3>تابعنا</h3>
-            <div class="social-links">
-              <a href="#" aria-label="فيسبوك" class="social-link"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a href="#" aria-label="تويتر" class="social-link"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a href="#" aria-label="إنستغرام" class="social-link"
-                ><i class="fab fa-instagram"></i
-              ></a>
-              <a href="#" aria-label="لينكدإن" class="social-link"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-            </div>
+            <div
+                class="social-links"
+                style="justify-content: center; margin-top: 15px"
+              >
+                <a  target="_blank" href="https://www.tiktok.com/@aamalalmasbah" aria-label="تيك توك" class="social-link"
+                  ><i class="fab fa-tiktok"></i
+                ></a>
+                </a>
+                <a  target="_blank" href="https://x.com/aamalalmasbah" aria-label="تويتر" class="social-link"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a target="_blank"
+                  href="https://www.instagram.com/Aamalalmasbah/#"
+                  aria-label="إنستغرام"
+                  class="social-link"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a target="_blank" href="https://www.youtube.com/@aamalalmasbah" aria-label="يوتيوب" class="social-link"
+                  ><i class="fab fa-youtube"></i></a>
+                </a>
+              </div>
           </div>
         </div>
         <div class="footer-bottom">
